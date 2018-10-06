@@ -3,7 +3,7 @@ import unittest
 
 # Not optimized or using the isSubstring()
 # Runtime : O(|s1|)
-def StringRotation(s1, s2):
+def StringRotationBrute(s1, s2):
     if len(s1) != len(s2):
         return False
     elif ''.join(set(s1)) != ''.join(set(s2)):
@@ -15,6 +15,15 @@ def StringRotation(s1, s2):
             if s1[i:] + s1[:i] == s2:
                 return True
         return False
+
+def is_substring(string, sub):
+    return string.find(sub) != -1
+
+
+def StringRotation(s1, s2):
+    if len(s1) == len(s2) != 0:
+        return is_substring(s1 + s1, s2)
+    return False
 
 class Test(unittest.TestCase):
     T = [('ab', 'ba'), ('hey', 'eyh'), ('coding', 'dingco'), ('abbaabba', 'baabbaab')]
