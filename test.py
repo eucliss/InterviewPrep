@@ -145,7 +145,7 @@ from operator import itemgetter, attrgetter
 #----------------------------------------------------
 
 # All Permutations
-
+#
 # s = "abc"
 # from itertools import permutations
 # s = permutations(s)
@@ -179,8 +179,156 @@ from operator import itemgetter, attrgetter
 # s = 'abc'
 # print(recurPerms(s))
 
+#----------------------------------------------------
+# lst = [1,2,3,1,2,1,1,1,5,6,3,3,3,1]
+# # lst = [1,2,3,3]
+#
+# def majorityItem(lst):
+#     max = 0
+#     maj = -1
+#     dct = {}
+#
+#     result = (0, -1)
+#
+#     for i in lst:
+#         if i in dct:
+#             continue
+#         else:
+#             dct[i] = lst.count(i)
+#     for key, value in dct.items():
+#         if value > max:
+#             max = value
+#             maj = key
+#         elif value == max:
+#             maj = -1
+#     return maj
+#
+# print(majorityItem(lst))
+#----------------------------------------------------
+# string = "Hello sir this is cool Hello this sir"
+#
+# def shortestDistance(string):
+#     string = string.split(' ')
+#     dct = {}
+#     for i in range(0, len(string):
+#         if string[i] not in dct:
+#             # index1, index2, dist
+#             dct[string[i]] = (i, 0, 0)
+#         else:
+#             if dct[string[i[1]]] == 0:
+#                 dct[string[i]] = [dct[string[i[0], i, abs(dct[string[i[0] - i)]]]]]
+#             else:
+#                 curr = i - dct[string[i[1]]]
+#                 if curr < dct[string[i[2]]]:
+#                     dct[string[i]] = (dct[string[i][]])
+#----------------------------------------------------
+# class Solution:
+#     # @param A : integer
+#     # @return a list of integers
+#     def primesum(self, A):
+#         results = []
+#         primes = self.generatePrimes(A)
+#         for i in primes:
+#             if A - i in primes:
+#                 results.append((min(i, A-i), max(i, A-i)))
+#         if len(results) != 0:
+#             smaller = self.lexico(results)
+#             return str(smaller[0][0]) + " + " + str(smaller[0][1]) + " = " + str(A)
+#         return str(results[0][0]) + " + " + str(results[0][1]) + " = " + str(A)
+#
+#     def lexico(lst):
+#         mins = results[0]
+#         for i in range(1, len(results)):
+#             if mins[0] < results[i][0] or mins[0] == results[i][0] and mins[1] < results[i][1]:
+#                 continue
+#             else:
+#                 mins = results[i]
+#         return mins
+#
+#
+#     def generatePrimes(self, A):
+#         primes = []
+#         for num in range(2,A):
+#             prime = True
+#             for i in range(2,num):
+#                 if (num%i==0):
+#                     prime = False
+#             if prime:
+#                primes.append(num)
+#         return(primes)
 
+# class Solution:
+#     def primesum(self, n):
+#         for i in xrange(2, n):
+#             if self.is_prime(i) and self.is_prime(n - i):
+#                 return i, n - i
+#
+#     def is_prime(self, n):
+#         if n < 2:
+#             return False
+#
+#         for i in xrange(2, int(n**0.5) + 1):
+#             if n % i == 0:
+#                 return False
+#
+#         return True
 
+#----------------------------------------------------
+#
+# INT_MAX = 4294967296
+# INT_MIN = -4294967296
+#
+# # A binary tree node
+# class Node:
+#
+#     # Constructor to create a new node
+#     def __init__(self, data):
+#         self.data = data
+#         self.left = None
+#         self.right = None
+#
+#
+# # Returns true if the given tree is a binary search tree
+# # (efficient version)
+# def isBST(node):
+#     return (isBSTUtil(node, INT_MIN, INT_MAX))
+#
+# # Retusn true if the given tree is a BST and its values
+# # >= min and <= max
+# def isBSTUtil(node, mini, maxi):
+#
+#     # An empty tree is BST
+#     if node is None:
+#         return True
+#
+#     # False if this node violates min/max constraint
+#     if node.data < mini or node.data > maxi:
+#         return False
+#
+#     # Otherwise check the subtrees recursively
+#     # tightening the min or max constraint
+#     return (isBSTUtil(node.left, mini, node.data -1) and
+#           isBSTUtil(node.right, node.data+1, maxi))
+#
+# # Driver program to test above function
+# root = Node(4)
+# root.left = Node(2)
+# root.right = Node(5)
+# root.left.left = Node(1)
+# root.left.right = Node(3)
+#
+# if (isBST(root)):
+#     print("Is BST")
+# else:
+#     print("Not a BST")
+
+#----------------------------------------------------
+#----------------------------------------------------
+#----------------------------------------------------
+#----------------------------------------------------
+#----------------------------------------------------
+#----------------------------------------------------
+#----------------------------------------------------
 #----------------------------------------------------
 #----------------------------------------------------
 #----------------------------------------------------
