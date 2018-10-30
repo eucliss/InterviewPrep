@@ -322,7 +322,121 @@ from operator import itemgetter, attrgetter
 # else:
 #     print("Not a BST")
 
-#----------------------------------------------------
+
+# Tree Traversals
+# def inOrder(root):
+#     if root != None:
+#         inOrder(root.left)
+#         print(root.data)
+#         inOrder(root.right)
+#     return
+#
+# def preOrder(root):
+#     if root != None:
+#         print(root.data)
+#         preOrder(root.left)
+#         preOrder(root.right)
+#     return
+#
+# def postOrder(root):
+#     if root != None:
+#         postOrder(root.left)
+#         postOrder(root.right)
+#         print(root.data)
+#     return
+#
+# # inOrder(root)
+# # print("______")
+# # preOrder(root)
+# # print("______")
+# # postOrder(root)
+# # print("______")
+#
+# #----------------------------------------------------
+#
+# # Tree node structure
+# class Node:
+#
+#     # Contructor to create a new node
+#     def __init__(self, key):
+#         self.data = key
+#         self.left = None
+#         self.right = None
+#
+#
+# # This function counts the number of nodes in a binary tree
+# def countNodes(root):
+#     if root is None:
+#         return 0
+#     return (1 + countNodes(root.left) + countNodes(root.right))
+#
+# # This function checks if binary tree is complete or not
+# def isComplete(root, index, number_nodes):
+#
+#     # An empty is complete
+#     if root is None:
+#         return True
+#
+#     # If index assigned to current nodes is more than
+#     # number of nodes in tree, then tree is not complete
+#     print(index, number_nodes)
+#     if index >= number_nodes :
+#         return False
+#
+#     # Recur for left and right subtress
+#     return (isComplete(root.left , 2*index+1 , number_nodes)
+#         and isComplete(root.right, 2*index+2, number_nodes)
+#           )
+#
+# # Driver Program
+#
+# root = Node(1)
+# root.left = Node(2)
+# root.right = Node(3)
+# root.left.left = Node(4)
+# root.left.right = Node(5)
+# root.right.left = Node(6)
+# root.right.right = Node(7)
+#
+# node_count = countNodes(root)
+# # print(node_count)
+# index = 0
+#
+# def insert(root, node):
+#     if root is None:
+#         root = node
+#     if root.left:
+#         insert(root.left, node)
+#     elif root.right:
+#         insert(root.left, node)
+#     elif root.right is None:
+#         root.right = node
+#     else:
+#         root.left = node
+#
+# # insert(root, Node(18))
+# # preOrder(root)
+#
+# def binaryInsert(root, node):
+#    if root is None:
+#         root = node
+#     else:
+#         if root.data < node.data:
+#             if root.right is None:
+#                 root.right = node
+#             else:
+#                 insert(root.right, node)
+#         else:
+#             if root.left is None:
+#                 root.left = node
+#             else:
+#                 insert(root.left, node)
+
+# if isComplete(root, index, node_count):
+#     print("The Binary Tree is complete")
+# else:
+#     print("The Binary Tree is not complete")
+
 #----------------------------------------------------
 #----------------------------------------------------
 #----------------------------------------------------
