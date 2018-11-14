@@ -316,14 +316,14 @@ from operator import itemgetter, attrgetter
 # root.right = Node(5)
 # root.left.left = Node(1)
 # root.left.right = Node(3)
+# #
+# # if (isBST(root)):
+# #     print("Is BST")
+# # else:
+# #     print("Not a BST")
 #
-# if (isBST(root)):
-#     print("Is BST")
-# else:
-#     print("Not a BST")
-
-
-# Tree Traversals
+#
+# # Tree Traversals
 # def inOrder(root):
 #     if root != None:
 #         inOrder(root.left)
@@ -345,13 +345,13 @@ from operator import itemgetter, attrgetter
 #         print(root.data)
 #     return
 #
-# # inOrder(root)
-# # print("______")
-# # preOrder(root)
-# # print("______")
-# # postOrder(root)
-# # print("______")
-#
+# inOrder(root)
+# print("______")
+# preOrder(root)
+# print("______")
+# postOrder(root)
+# print("______")
+
 # #----------------------------------------------------
 #
 # # Tree node structure
@@ -438,11 +438,319 @@ from operator import itemgetter, attrgetter
 #     print("The Binary Tree is not complete")
 
 #----------------------------------------------------
+
+
+
+# Python program to demonstrate delete operation
+# in binary search tree
+
+# A Binary Tree Node
+# class Node:
+#
+#     # Constructor to create a new node
+#     def __init__(self, key):
+#         self.key = key
+#         self.left = None
+#         self.right = None
+#
+#
+# # A utility function to do inorder traversal of BST
+# def inorder(root):
+#     if root is not None:
+#         inorder(root.left)
+#         print(root.key)
+#         inorder(root.right)
+#
+#
+# # A utility function to insert a new node with given key in BST
+# def insert( node, key):
+#
+#     # If the tree is empty, return a new node
+#     if node is None:
+#         return Node(key)
+#
+#     # Otherwise recur down the tree
+#     if key < node.key:
+#         node.left = insert(node.left, key)
+#     else:
+#         node.right = insert(node.right, key)
+#
+#     # return the (unchanged) node pointer
+#     return node
+#
+# # Given a non-empty binary search tree, return the node
+# # with minum key value found in that tree. Note that the
+# # entire tree does not need to be searched
+# def minValueNode( node):
+#     current = node
+#
+#     # loop down to find the leftmost leaf
+#     while(current.left is not None):
+#         current = current.left
+#
+#     return current
+#
+# # Given a binary search tree and a key, this function
+# # delete the key and returns the new root
+# def deleteNode(root, key):
+#
+#     # Base Case
+#     if root is None:
+#         return root
+#
+#     # If the key to be deleted is smaller than the root's
+#     # key then it lies in  left subtree
+#     if key < root.key:
+#         root.left = deleteNode(root.left, key)
+#
+#     # If the kye to be delete is greater than the root's key
+#     # then it lies in right subtree
+#     elif(key > root.key):
+#         root.right = deleteNode(root.right, key)
+#
+#     # If key is same as root's key, then this is the node
+#     # to be deleted
+#     else:
+#
+#         # Node with only one child or no child
+#         if root.left is None :
+#             temp = root.right
+#             root = None
+#             return temp
+#
+#         elif root.right is None :
+#             temp = root.left
+#             root = None
+#             return temp
+#
+#         # Node with two children: Get the inorder successor
+#         # (smallest in the right subtree)
+#         temp = minValueNode(root.right)
+#
+#         # Copy the inorder successor's content to this node
+#         root.key = temp.key
+#
+#         # Delete the inorder successor
+#         root.right = deleteNode(root.right , temp.key)
+#
+#
+#     return root
+#
+# # Driver program to test above functions
+# """ Let us create following BST
+#               50
+#            /     \
+#           30      70
+#          /  \    /  \
+#        20   40  60   80 """
+#
+# root = None
+# root = insert(root, 50)
+# root = insert(root, 30)
+# root = insert(root, 20)
+# root = insert(root, 40)
+# root = insert(root, 70)
+# root = insert(root, 60)
+# root = insert(root, 80)
+#
+# print("Inorder traversal of the given tree")
+# inorder(root)
+#
+# print("\nDelete 20")
+# root = deleteNode(root, 20)
+# print("Inorder traversal of the modified tree")
+# inorder(root)
+#
+# print("\nDelete 30")
+# root = deleteNode(root, 30)
+# print("Inorder traversal of the modified tree")
+# inorder(root)
+#
+# print("\nDelete 50")
+# root = deleteNode(root, 50)
+# print("Inorder traversal of the modified tree")
+# inorder(root)
+
+
 #----------------------------------------------------
+
+# class StopIteration(Exception):
+#     def __init__(self, *args):
+#         Exception.__init__(self, *args)
+#
+# class iterguns():
+#
+#     def __init__(self, limit):
+#         self.limit = limit
+#         self.offset = 0
+#
+#     def __next__(self):
+#         self.offset += random.random()
+#         if (self.offset > self.limit):
+#             raise StopIteration("wow")
+#         return self.offset
+#
+#     def __iter__(self):
+#         return self
+#
+# print("------ ITERATOR -------")
+# itertest = iterguns(4)
+# print(next(itertest))
+# print(iter(itertest))
+# print("-------------")
+#
+#
+# def generatorTest(limit):
+#     offset = 0
+#     while True:
+#         offset += random.random()
+#         yield offset
+#
+# print("------ GEN 1 -------")
+# gen = generatorTest(3)
+# print(next(gen))
+# print(next(gen))
+#
+# def groceryGen(lst):
+#     i = 0
+#     while True:
+#         if i >= len(lst):
+#             raise StopIteration("error")
+#         yield lst[i]
+#         i +=1
+#
+# print("------ GROCERY GEN -------")
+# gen = groceryGen(['eggs', 'bacon', 'milk'])
+# print(next(gen))
+# print(next(gen))
+#
+
+
 #----------------------------------------------------
+import timeit
+
+# DECORATORS
+
+#
+#
+# def print_inbetween(func):
+#     def func_wrapper(func):
+#         print("hello")
+#         return func
+#     return func_wrapper(func)
+#
+#
+#
+# @print_inbetween
+# def foo():
+#     print("world")
+#     return True
+#
+# def time_function(f):
+#     def wrapper(*args, **kargs):
+#             begin = timeit.default_timer()
+#             result = f()
+#             end = timeit.default_timer()
+#             print("time= " + str(end-begin))
+#             return result
+#
+#     return wrapper
+#
+# @time_function
+# def funcy():
+#     count = 0
+#     for i in range(0,1000):
+#         for i in range(0,1000):
+#             count+=1
+#     return count
+#
+# test = funcy()
+# print(test)
+#
+#
+# def print_inbetween(func):
+#     def wrapper():
+#         print("first")
+#         # end = func()
+#         print("last")
+#         return func()
+#     return wrapper
+#
+# @print_inbetween
+# def foo():
+#     print("inbetween")
+#     return 1
+#
+# count = 0
+# for i in range(0,10):
+#     count += foo()
+#
+# print(count)
+
+
 #----------------------------------------------------
+# HEAPS
+
+import heapq
+
+# min_heap = [i*i for i in range(0,10)]
+# heapq.heapify(min_heap)
+# heapq.heappop(min_heap) # 0
+# heapq.heappush(min_heap, 7)
+# heapq.nlargest(2, min_heap) #[81,64]
+# heapq.heappushpop(min_heap, 2)
+# smallest = min_heap[0] # doesnt pop
+
+
+# max_heap = [i*i for i in range(0,10)]
+# heapq._heapify_max(max_heap)
+# heapq._heappop_max(max_heap)
+
 #----------------------------------------------------
+#map, filter, reduce
+#map reduce
+
+# lst = [i for i in range(0,15)] # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+# list(map(lambda x: x+1, lst)) #[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+# list(filter(lambda x: x%2==0, lst)) # [0, 2, 4, 6, 8, 10, 12, 14]
+# from functools import reduce
+# reduce(lambda x, y: x+y, lst) # 105
+
+
 #----------------------------------------------------
+
+# TRIES, Prefixes
+
+
+# class Solution:
+#     # @param A : list of strings
+#     # @return a list of strings
+#     def prefix(self, A):
+#         tree = [0, {}]
+#         for s in A:
+#             node = tree
+#             node[0] += 1
+#             for c in s:
+#                 node = node[1].setdefault(c, [0, {}])
+#                 node[0] += 1
+#         l = []
+#         for s in A:
+#             prefix = ''
+#             node = tree
+#             for c in s:
+#                 if node[0] <= 1:
+#                     l.append(prefix)
+#                     break
+#                 prefix += c
+#                 node = node[1][c]
+#             else:
+#                 l.append(s)
+#         return l
+
+# Input is a list of strings, returns prefixes
+
+
+
 #----------------------------------------------------
 #----------------------------------------------------
 #----------------------------------------------------
