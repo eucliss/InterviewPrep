@@ -1,7 +1,7 @@
 import random
 from operator import itemgetter, attrgetter
 #----------------------------------------------------
-# # Non Dups
+# Non Dups
 # names = ['Bob', 'Alice', 'Bob', 'Jill']
 #
 #
@@ -20,8 +20,8 @@ from operator import itemgetter, attrgetter
 #----------------------------------------------------
 
 # 17.3
-#
-# l1 = [1,2,3,4,5,6,7,8,9]
+
+l1 = [1,2,3,4,5,6,7,8,9]
 #
 # def randomM(l1, m):
 #     L2 = []
@@ -30,7 +30,7 @@ from operator import itemgetter, attrgetter
 #         L2.append(rand)
 #         del l1[rand]
 #     return L2
-#
+
 # def randomRecur(l1,m):
 #     return recurHelper(l1, [], m)
 #
@@ -66,7 +66,7 @@ from operator import itemgetter, attrgetter
 #----------------------------------------------------
 
 # print('012345'[5])
-#
+
 #
 # count = 0
 # for i in range(0,61524):
@@ -104,7 +104,7 @@ from operator import itemgetter, attrgetter
 #
 # for key, value in dict.items():
 #     print(key, value)
-
+#
 # dict = {'a':1, 'b': 2, 'c': 3}
 #
 # for key in dict.keys():
@@ -131,7 +131,7 @@ from operator import itemgetter, attrgetter
 #             else:
 #                 continue
 #         return count
-
+#
 
 #----------------------------------------------------
 # def gcd(self, A, B):
@@ -145,14 +145,14 @@ from operator import itemgetter, attrgetter
 #----------------------------------------------------
 
 # All Permutations
-#
+
 # s = "abc"
 # from itertools import permutations
 # s = permutations(s)
 # print(s)
 #
 # s = "abc"
-#
+
 # def allPerms(s):
 #     init = ['']
 #     for i in range(0, len(s)):
@@ -163,7 +163,7 @@ from operator import itemgetter, attrgetter
 #     return init
 #
 # print(allPerms(s))
-#
+
 # def recurPerms(s):
 #     return helper(s, [''])
 #
@@ -176,7 +176,7 @@ from operator import itemgetter, attrgetter
 #         copy[j] += s[-1]
 #     return lst + copy
 #
-# s = 'abc'
+# s = 'abcde'
 # print(recurPerms(s))
 
 #----------------------------------------------------
@@ -723,8 +723,8 @@ import heapq
 
 
 # class Solution:
-#     # @param A : list of strings
-#     # @return a list of strings
+    # @param A : list of strings
+    # @return a list of strings
 def prefix(A):
     tree = [0, {}]
     for s in A:
